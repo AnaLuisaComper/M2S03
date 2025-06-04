@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Juros composto</title>
+</head>
+<body>
+    <h1>Calculadora de Juros Compostos</h1>
+    <button onclick="calcularJurosCompostos()">Calcular Juros Compostos</button>
+
+    <h2 id = "Resultado"></h2>
+    
+    <script>
+        function calcularJurosCompostos() {
+            const capitalInicial = parseFloat(prompt("Digite o capital inicial:"));
+            const periodoMeses = parseInt(prompt("Digite o tempo (em meses):"));
+
+            if (isNaN(capitalInicial) || isNaN(periodoMeses))  {
+                console.log("Por favor, insira valores válidos.");
+                alert("Por favor, insira valores válidos.");
+                return;
+            }
+
+            const taxaJuros = 0.05; 
+            const montante = capitalInicial * Math.pow(1 + taxaJuros, periodoMeses);
+            const resultadoFormatado = montante.toFixed(3);
+
+            document.getElementById("Resultado").textContent = `Montante final: R$ ${resultadoFormatado}`;
+        }
+    </script>
+    
+</body>
+</html>
