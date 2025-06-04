@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Capitalizar frase</title>
+</head>
+<body>
+    <script> 
+        const frase = prompt("Digite uma frase: ");
+
+
+    function capitalizar(frase) {
+        return frase
+            .split(" ")
+            .map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase())
+            .join(" ");
+    }
+
+    const fraseCapitalizada = capitalizar(frase);
+    console.log("fraseCapitalizada:", fraseCapitalizada);
+    alert("Frase capitalizada: " + fraseCapitalizada);
+    </script>
+    
+</body>
+</html>
