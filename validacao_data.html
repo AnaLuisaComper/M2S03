@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Validação de Data</title>
+</head>
+<body>
+    <h1>Validador de Data</h1>
+    <button onclick="validarData()">Validar Data</button>
+
+    <script>
+        function validarData() {
+            const dia = parseInt(prompt("Digite o dia:"));
+            const mes = parseInt(prompt("Digite o mês:"));
+            const ano = parseInt(prompt("Digite o ano:"));
+
+            let dataValida = true;
+
+            // Valida o ano
+            if (isNaN(ano) || ano <= 0 || ano >= 9999) {
+                dataValida = false;
+            }
+
+            // Valida o mês
+            else if (isNaN(mes) || mes < 1 || mes > 12) {
+                dataValida = false;
+            }
+
+            // Valida o dia com base no mês
+            else if (isNaN(dia) || dia < 1) {
+                dataValida = false;
+            } else {
+                const mesesCom31Dias = [1, 3, 5, 7, 8, 10, 12];
+                const mesesCom30Dias = [4, 6, 9, 11];
+
+                if (mesesCom31Dias.includes(mes) && dia > 31) {
+                    dataValida = false;
+                } else if (mesesCom30Dias.includes(mes) && dia > 30) {
+                    dataValida = false;
+                } else if (mes === 2 && dia > 28) {
+                    dataValida = false;
+                }
+            }
+
+            // Resultado no console
+            if (dataValida) {
+                console.log("Data válida");
+                alert("Data válida");
+            } else {
+                console.log("Data inválida");
+                alert("Data inválida");
+            }
+        }
+    </script>
+</body>
+</html>
