@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Matriz Identidade</title>
+</head>
+<body>
+    <h1>Gerador de Matriz Identidade</h1>
+    <button onclick="gerarMatrizIdentidade()">Gerar Matriz</button>
+
+    <pre id="resultado"></pre>
+
+    <script>
+        function gerarMatrizIdentidade() {
+            const ordem = parseInt(prompt("Digite a ordem da matriz identidade:"));
+            const resultado = document.getElementById("resultado");
+
+            if (isNaN(ordem) || ordem <= 0) {
+                alert("Por favor, digite um número válido maior que zero.");
+                return;
+            }
+
+            let matrizTexto = `Matriz identidade de ordem ${ordem}:\n`;
+
+            for (let i = 0; i < ordem; i++) {
+                let linha = "";
+                for (let j = 0; j < ordem; j++) {
+                    linha += (i === j) ? "1" : "0";
+                }
+                matrizTexto += linha + "\n";
+            }
+
+            resultado.textContent = matrizTexto;
+        }
+    </script>
+</body>
+</html>
